@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="main">
+    <h3>회원가입</h3>
+    <form action="" name="frm" method="get">
+      <label>이름</label>
+      <input type="text" name="name" id="name"><br/>
+      <label>아이디</label>
+      <input type="text" name="id" id="id">
+      <button>아이디 중복확인</button>
+      <br/>
+      <label>비밀번호</label>
+      <input type="text" name="pw" id="pw"><br/>
+      <label>비밀번호확인</label>
+      <input type="text" name="pw2" id="pw2">
+      <span>비밀번호가 일치합니다.</span>
+      <br/>
+      <label>생년월일</label>
+      <input type="text" name="birth" id="birth"><br/>
+      <label>성별</label><br/>
+      <input type="radio" name="gender" id="male" value="male">
+      <label for="male">남자</label>
+      <input type="radio" name="gender" id="female" value="female">
+      <label for="female" >여자</label>
+      <br/>
+      <label>이메일</label>
+      <input type="text" name="email1" id="email1">@
+      <input type="text" name="email2" id="email2">
+      <!-- select -->
+      <select name="email3" id="email3"">
+        <option value="">직접입력</option>
+        <option value="naver.com">naver.com</option>
+        <option value="gmail.com">gmail.com</option>
+        <option value="daum.net">daum.net</option>
+      </select>
+      <br/>
+      <label>우편번호</label>
+      <input type="text" name="post" id="post">
+      <button>주소검색</button>
+      <br/>
+      <label>주소</label>
+      <br/>
+      <input type="text" name="address1" id="address1"><br/>
+      <input type="text" name="address2" id="address2"><br/>
+      <br/><br/>
+      <button type="button">회원가입</button>
+      <button type="button">취소</button>
+  </div>
+  </form>
+</body>
+</html>
+
