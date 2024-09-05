@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글꼴 관련 스타일</title>
+  <style>
+    h3{width: 300px; height: 100px; border: 1px solid black;
+      white-space: nowrap; /*줄단락을 없앰*/
+      overflow: hidden; /* 테두리를 벗어난 것을 숨김*/
+      text-overflow: ellipsis; /* 말줄임표 */
+    }
+
+    /* hover: 마우스 위에 올림 */
+    h3:hover{
+      white-space: normal;
+      overflow: visible;
+    }
+    
+    
+    div{width: 300px; height: 100px; border: 1px solid black;
+      /* white-space: nowrap; */
+      overflow: scroll;
+    }
+    
+    Zh2{width: 400px; height: 200px; text-align: center;
+      border: 1px solid black; font-size: 50px;
+
+      /* 그림자 가로 위치, 세로 위치, 페더값, 컬러 */
+      text-shadow: 35px 35px 5px #f00;
+
+      letter-spacing: 3px; /* 자간 */
+      word-spacing: 5px; /* 띄어쓰기 간격 */
+
+
+      /* line-through, overline, underline, none */
+      text-decoration: line-through;
+
+      font-size: 50px;
+
+      /* 
+      글자 색상
+      color: rgb(0,0,0,0.8); rgb 만 투명도 설정 가능
+      color: black; 문자 색상 전용
+      color: #000000; 16진수 코드 적용 #000; 
+      */   
+      color: rgb(0,0,0,0.8);
+
+      text-align: center; /* 글자를 가운데 정렬 */
+      margin: 0 auto; /* 사각 모델을 가운데 정렬 */
+      line-height: 190px; /* 세로 가운데 정렬 */
+      /*
+      padding-top:60px; box-sizing: border-box; 세로 가운데 정렬
+      */
+    }
+    p{width: 400px; height: 500px; border: 1px solid black;
+    font-size: 17px; font-weight: 700; /* 크기 */
+    line-height: 60px; /* 줄간격 */
+    text-align: justify;
+    }
+  </style>
+</head>
+<body>
+  <h3>
+    버진아일랜드는 팡라오 마을 인근에 위치하며 뛰어난 자연경관을 자랑하는 휴양지로, 국가 통합 보호구역 제도에 따라 환경 보호를 받고 있다. <br/> 특히 크고 작은 산호와 열대어들을 만나볼 수 있어 ‘스노클링’의 명소로 불리며 관광객들에게 인기를 얻었다.
+  </h3>
+  <div>
+    버진아일랜드는 팡라오 마을 인근에 위치하며 뛰어난 자연경관을 자랑하는 휴양지로, 국가 통합 보호구역 제도에 따라 환경 보호를 받고 있다. <br/> 특히 크고 작은 산호와 열대어들을 만나볼 수 있어 ‘스노클링’의 명소로 불리며 관광객들에게 인기를 얻었다.
+  </div>
+  <h2>글꼴 관련 스타일</h2>
+  <p>
+    버진아일랜드는 팡라오 마을 인근에 위치하며 뛰어난 자연경관을 자랑하는 휴양지로, 국가 통합 보호구역 제도에 따라 환경 보호를 받고 있다. 특히 크고 작은 산호와 열대어들을 만나볼 수 있어 ‘스노클링’의 명소로 불리며 관광객들에게 인기를 얻었다.
+  </p>
+</body>
+</html>

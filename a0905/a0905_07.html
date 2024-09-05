@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{width: 500px; height: 300px;
+        background-color: #0000ff;
+        
+        /* border-box (선 바깥까지 색칠), padding-box(선 안까지 색칠), content-box(패딩값 안쪽까지 색칠) */
+        background-clip: padding-box; 
+        
+        border: 30px dotted black;
+        padding: 100px; /* 안쪽 여백 */
+        margin: 50px; /* 바깥쪽 여백 */
+        color: white;
+    }
+    p{width: 500px; height: 300px;
+      background: yellow;
+    }
+    #divImg{
+      width: 700px; height: 500px;
+      border: 50px dashed black;
+      background-clip: content-box;
+      padding: 0;
+      background-image: url(images/s01.jpg);
+
+    
+    }
+
+  </style>
+</head>
+<body>
+  <div>카모아카쿨라 광산은 세계 2위 규모로, 지난해 구리 40만t을 생산했다. 콩고민주공화국과 잠비아의 북쪽 국경 바로 건너편에 위치하며, 캐나다 광산회사 아이반호와 중국 광산회사 쯔진이 소유하고 있다. 콩고민주공화국은 구리 매장량 세계 2위(1억5000만t), 코발트 매장량 세계 1위(600만t)다. 이런 잠비아와 콩고민주공화국의 거대한 구리 매장지는 이른바 ‘구리벨트(copper belt)’로 불린다.</div>
+  
+  <div id="divImg">
+
+  </div>
+  
+  <!--<p></p>-->
+</body>
+</html>
