@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반응형 그리드</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    div{width: 100%; height: 820px;
+      background: url(images/resom_pc.jpg) no-repeat;
+    }
+
+    /* max-width 최대 가로 넓이 
+     (800px보다 줄어들면 이미지를 바꿔라!) */ 
+    @media screen and (max-width:800px){
+      div{
+        background: url('images/resom_mobile.jpg') no-repeat;
+        background-position: 0 -300px;
+      }
+      
+    }
+      
+    
+  </style>
+</head>
+<body>
+  <div></div>
+  
+</body>
+</html>
