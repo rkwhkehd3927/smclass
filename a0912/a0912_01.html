@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>transition</title>
+  <style>
+
+  /* translate, scale */
+  *{margin: 0; padding: 0;}
+  .main{width: 200px; height: 200px; border: 1px solid black;
+    margin: 50px auto;
+    perspective: 200px; /* 원근감 */
+  }
+  .move{transition: 0.5s all ease-in;}
+  .move:hover{
+    /* transform: translate(0, 100px); 이동 */
+    /* transform: scale(1.5); 크기변형 */
+    /* transform-origin: left top; 변형의 기준점 */
+    transform: rotateX(180deg) scale(2);
+    backface-visibility: hidden; /* 반대쪽 면 표시 유무 */
+    /* 
+    transform: rotateY(180deg);
+    transform: rotateZ(180deg); 회전 */
+    /* transform: skewX(-30deg);
+    transform: skewY(-30deg); 기울기 */
+
+    }
+  .move img{width: 100%;}
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div class="move">
+      <img src="images/t01.png">
+    </div>
+  </div>
+  <hr>
+  <div class="main">
+    <div class="move">
+      <img src="images/i01.jpg">
+    </div>
+  </div>
+</body>
+</html>

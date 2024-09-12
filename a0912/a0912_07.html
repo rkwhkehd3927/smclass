@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <title>포레스트 리솜</title>
+  
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="/"><img src="images/img_logo_re_forest.png"></a>
+      </div>
+      <div class="nav_wrap">
+        <div class="quick_menu">
+          <ul>
+            <li><a href="#">회원예약</a></li>
+            <li><a href="#">패키지 예약</a></li>
+            <li><a href="#">부대시설 예약</a></li>
+            <li><a href="#">회원가입</a></li>
+            <li><a href="#">로그인</a></li>
+          </ul>
+        </div>
+        <div class="menu" onmouseover="m_over()" onmouseleave="m_leave()">
+          <ul>
+            <li><a href="#">포레스트</a></li>
+            <li><a href="#">스파&찜질방</a></li>
+            <li><a href="#">객실</a></li>
+            <li><a href="#">특별한 경험</a></li>
+            <li><a href="#">세미나 & 연회</a></li>
+            <li><a href="#">브랜드소개</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <script>
+
+    // 마우스 올리면 나타났다가 사라지는 메뉴 //
+    function m_over(){
+      document.querySelector(".navibg").style.display='block';
+    }
+
+    function m_leave(){
+      document.querySelector(".navibg").style.display='none';
+    }
+
+  </script>
+
+  <!-- * 하부 메뉴 부분 들어감 -->
+  <div class="navibg">
+
+  </div>
+
+
+   <div class="banner">
+    <div class="banner_txt">
+      <p>V-TOP SPA</p>
+      <h3>파노라마 숲에서 즐기는 프라이빗 스파</h3>
+      <h4>계절의 색을 담은 숲이 나만의 정원이 됩니다.<br/>
+        자연과 함께하는 특별한 쉼을 경험해보세요.</h4>
+      <a href="#">자세히 보기</a>
+    </div>
+   </div>
+
+   <!-- 내용 부분-->
+   <section>
+     <article>
+      <!-- 이벤트 부분 -->
+      <div class="event">
+      <h2>EVENT</h2>  
+      <div class="more"><a href="#">MORE</a></div>
+        <div class="event_cont">
+          <div class="event_box">
+            <img src="images/e01.jpg">
+            <div class="t1">이벤트</div>
+            <div class="text">
+              <h3>달빛 밝은 한가위 한마당</h3>
+              <p>이용기간 : 2024.09.14~2024.09.18</p>
+            </div>
+          </div>
+
+          <div class="event_box">
+            <img src="images/e02.jpg">
+            <div class="t1">이벤트</div>
+            <div class="text">
+              <h3>[브이탑 스파] 명당에서 즐기는 프라이빗 스파</h3>
+              <p>이용기간 : 2024.03.01~종료시까지</p>
+            </div>
+          </div>
+
+          <div class="event_box">
+            <img src="images/e03.jpg">
+            <div class="t1">이벤트</div>
+            <div class="text">
+              <h3>[몬도키친] 프리미엄 조식&디너뷔페</h3>
+              <p>이용기간 : 2024.07.10~종료시까지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    <!-- Package part -->
+      <div class="event">
+      <h2>PACKAGE</h2>  
+      <div class="more"><a href="#">MORE</a></div>
+        <div class="event_cont">
+          <div class="event_box">
+            <img src="images/e01.jpg">
+            <div class="text">
+              <h3>포레스트 올인클루시브</h3>
+              <p>이용기간 : 2024.06.28~2024.11.30</p>
+            </div>
+          </div>
+
+          <div class="event_box">
+            <img src="images/e02.jpg">
+            <div class="text">
+              <h3>패밀리 올인클루시브</h3>
+              <p>이용기간 : 2024.06.28~2024.11.30</p>
+            </div>
+          </div>
+
+          <div class="event_box">
+            <img src="images/e03.jpg">
+            <div class="text">
+              <h3>포레스트 가족사진</h3>
+              <p>이용기간 : 2024.07.10~종료시까지</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+   </article>
+  </section>
+      
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d01{width: 100px; height: 100px;
+    background: skyblue; border: 3px solid black;
+    
+    /* 아래 한줄과 같이 묶어서 사용 가능
+    transition-property: all; 속성 선택
+    transition-duration: 1s; 진행 시간
+    transition-timing-function: ease-in ; 트랜지션 속도효과
+    transition-delay: 3s; 지연 시간
+    */
+    transition: all 1s ease-in 1s;
+    }
+    .d01:hover{width: 200px; height: 200px; background: yellow;
+      border-radius: 50%;}
+  </style>
+</head>
+<body>
+  <div class="d01"></div>
+</body>
+</html>
