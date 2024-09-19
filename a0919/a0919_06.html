@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체질량 지수(미완)</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+  *{margin: 0; padding: 0;
+    font-family: "Nanum Gothic", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-decoration: none; list-style: none; font-style: inherit;}
+  section{width: 100%; height: 800px;}
+  h2{width: 620px; height: 50px; line-height: 50px; padding-left: 30px;
+    font-size: 18px; 
+    background: #0aaf6b; color: #ffffff;
+    border-bottom: 3px solid #e5e5e5;}
+  .main{width: 650px; height: 788px;}
+  .main .txt{width: 610px; height: 120px; margin: 21px; padding: 22px; line-height: 24px;
+    letter-spacing: -0.03em; box-sizing: border-box; font-weight: 400;
+    font-size: 14px; color: #454545; background: #f8f8f8;}
+
+  .form{width: 610px; height: 238px; 
+    border: 1px solid black; box-sizing: border-box; margin: 21px; padding: 22px;
+    }
+  .form label{font-size: 15px; font-weight: 700; color: #454545;}
+  .form span{font-size: 14px; font-weight: 400;}
+  .form input{height: 27px; width: 60px; outline: none;}
+  .form input[type=text]{text-align: center; margin-right: 10px; padding: 0 5px;
+    border: 1px solid #ddd; vertical-align: middle;}
+  .form .dash{color:#b7b7b7; margin: 0 15px; font-size: 16px; font-weight: 400;}
+
+  #weight+span{margin-right: 100px;}
+  .compute input{font-size: 14px; color: white; width: 70px; border: none;}
+  .compute input[type=button]{background: #0AAF6B;}
+  .compute input[type=reset]{background: #656565;}
+
+  .clearFix{width: 600px; height: 50px;
+    margin: 10px 0;
+    line-height: 23px;}
+  .clearFix dt{float: left; font-size: 14px; font-weight: 400; width: 20%;}
+  .clearFix dd{width: 80%; font-weight: 700; font-size: 14px; color:#eb4f3a;}
+
+  .graph{width: 556px; height: 80px; border: 1px solid black;}
+  .graph li{width: 20%; font-size: 13px; display: inline-block; justify-content: space-between;}
+  .graph li .dv1{width:18.5%;}
+  .graph li .dv2{width:14.5%;}
+
+
+</style>
+<body>
+  <section>
+    <h2>나의 체질량지수(BMI)</h2>
+    <div class="main">
+      <div class="txt">
+          체질량지수는 자신의 몸무게(kg)를 키의 제곱(m)으로 나눈 값입니다.
+          <br/>체질량지수는 근육량, 유전적 원인, 다른 개인적 차이를 반영하지 못하는 단점이 있음에도 불구하고
+          <br/>조사자들이나 의료인들이 가장 많이 쓰는 방법 중 하나입니다.
+      </div>
+      <div class="form">
+        <form action="#" name="frm" method="get">
+          <label>신장</label>
+          <input type="text" name="length" id="length"><span>cm</span>
+          <span class="dash">/</span>
+          <label>체중</label>
+          <input type="text" name="weight" id="weight"><span>kg</span>
+
+          <span class="compute"> <!--버튼으로 해야하는거 아닌가....?-->
+            <input type="button" id="btn1" value="계산">
+            <input type="reset" id="btn2" value="초기화">
+          </span>
+
+
+          <!--
+            <button type="button" id="btn1" onclick="btn()">계산</button>
+            <button type="button" id="btn2" onclick="btn()">초기화</button>
+            -->
+        </form>
+        <dl class="clearFix">
+          <dt>비만도 결과</dt>
+          <dd id="resultText">정상입니다.</dd>
+          <dt>BMI 지수</dt>
+          <dd id="bimNumber">수치</dd>
+
+        </dl>
+        
+        <ul class="graph">
+          <li>
+            <label>BMI</label>
+            <label class="dv1">18.5</label>
+            <label class="dv2">23</label>
+            <label>15.00</label>
+            <ul class="bar">
+              <li class="low_weight">저체중</li>
+              <li class="regular">정상</li>
+              <li class="overweight">과체중</li>
+              <li class="obesity">비만</li>
+            </ul>
+            <label>체중</label>
+          </li>
+        </ul>
+
+
+
+      </div>
+    </div>
+
+  </section>
+  
+</body>
+</html>
