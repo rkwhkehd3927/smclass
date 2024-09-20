@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열객체(미완, 월욜에 마저 하기)</title>
+</head>
+<body>
+  <script>
+
+    // 이름 : 홍길동
+    // 국어 : 100
+    // 영어 : 100
+    // 수학 : 100
+    // 합계 : 300
+
+    var name = prompt("이름을 입력하세요.");
+    var kor = Number(prompt("국어 점수를 입력하세요."));
+    var eng = Number(prompt("영어 점수를 입력하세요."));
+    var math = Number(prompt("수학 점수를 입력하세요."));
+    var total = kor+eng+math;
+    var avg = total/3;
+
+    document.write(name+"<br>");
+    document.write(kor+"<br>");
+    document.write(eng+"<br>");
+    document.write(math+"<br>");
+    document.write(total+"<br>");
+    document.write(avg.toFixed(2)+"<br>");
+
+    var total = new Array(3);
+    for(var i=0;i<=2;i++){
+      total[i] =
+    }
+
+
+
+    // var a = 0; // a 변수에 1개의 변수가 생성
+    // var arr = new Array(3); // arr 변수에 3개의 변수를 생성
+    // arr[0] = 100;
+    // arr[1] = 99;
+    // arr[2] = 98;
+    // document.write(arr[0]);
+
+    // 1개 변수를 사용하여 5개의 숫자를 입력받아 변수에 저장하고 출력하시오.
+
+    // var num1 = Number(prompt("5개의 숫자를 입력하세요. 1번째 숫자는?"))
+    // var num2 = Number(prompt("5개의 숫자를 입력하세요. 2번째 숫자는?"))
+    // var num3 = Number(prompt("5개의 숫자를 입력하세요. 3번째 숫자는?"))
+    // var num4 = Number(prompt("5개의 숫자를 입력하세요. 4번째 숫자는?"))
+    // var num5 = Number(prompt("5개의 숫자를 입력하세요. 5번째 숫자는?"))
+    
+
+    // // 배열생성
+    // var arr = new Array(5);
+    // for(var i=0;i<=5;i++){
+    //   arr[i] = Number(prompt("숫자를 입력하세요."));
+    //   document.write(arr[i]+"<br>");
+      
+    // }
+
+  </script>
+</body>
+</html>

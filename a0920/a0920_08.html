@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>switch</title>
+</head>
+<body>
+  <script>
+    //반복문 : for(초깃값; 조건식; 증감식)
+
+    // 1,3,5.. 홀수합계 var i=1; i<=100; i+=2
+    var sum = 0;
+    for(var i=1; i<=100; i+=2){
+      document.write(i+" ");
+      sum = sum + i; // 1~100까지 숫자 합계 구하는 방법 
+    }
+  
+
+
+    // var score = Number(prompt("점수를 입력하세요."));
+    // score = parseInt(score / 10);
+    // // parseInt(score / 10) 10,9,8,7,....0
+
+    // var result = "";
+    // switch(score){
+    //   case 10: case 9:  // ....일일이 다 쳐야한다는 단점이 있어서 잘 안씀
+    //     result = "A";
+    //     break; // break 를 넣어주지 않으면 가장 아래의 것만 출력됨.
+    //   case 8:
+    //     result = "B";
+    //     break;
+    //   case 7:
+    //     result = "C";
+    //     break;
+    // }
+
+    // document.write(result);
+
+
+
+
+
+//===========================================================
+    // var site = prompt("네이버, 다음, 네이트, 구글을 선택하세요.");
+    // //switch
+
+    // var result = "";
+    // switch(site){
+    //   case "구글":
+    //     result = "구글 : http://www.google.co.kr";
+    //   break;
+    //   case "네이버":
+    //     result = "네이버 : http://www.naver.com";
+    //   break;
+    //   case "다음":
+    //     result = "http://www.daum.net";
+    //   break;
+    //   case "네이트":
+    //     result = "네이트 : http://www.nate.com";
+    //   break;
+    // }
+    // // document.write(result);
+    // location.href = result;
+  </script>
+  
+</body>
+</html>
