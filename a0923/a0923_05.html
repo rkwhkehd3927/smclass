@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Date</title>
+</head>
+<body>
+  <script>
+    var tday = new Date('2024-10-1');
+
+    function wirteBtn(){
+        alert("저장 클릭");
+        console.log(document.getElementById("no").value);
+        console.log(document.getElementById("title").value);
+        console.log(document.getElementById("name").value);
+
+        // 날짜, 조회수 -1;
+        var today = new Date();
+        var tday = today.getFullYear()+"-"+('0'+(today.getMonth()+1))+"-"+today.getDate();
+        var hit = 1;
+        console.log(today);
+        console.log(today.getFullYear());
+        console.log(today.getMonth());
+        console.log('0'+(today.getMonth()+1)); // 10월부터는 앞에 '0'이 붙으면 안되니까 if문 넣어주기
+        console.log(today.getDate());
+        console.log(today.getDay());
+        console.log(today.getFullYear()+"-"+('0'+(today.getMonth()+1))+"-"+today.getDate());
+
+
+      }
+
+    var year = tday.getFullYear();
+    var month = tday.getMonth();
+    var txtMonth = month+1;
+    if(txtMonth < 10){
+      txtMonth = "0"+txtMonth;
+    }
+    var date = tday.getDate();
+    var txtDate;
+    if(date < 10){
+      txtDate = "0"+date;
+    }
+    var day = tday.getDay();
+    var txtDay; // 월요일, 화요일 ...
+    if(day==0){
+      txtDay = "일요일";
+    }else if(day==1){
+      txtDay = "월요일";
+    }else if(day==2){
+      txtDay = "화요일";
+    }else if(day==3){
+      txtDay = "수요일";
+    }else if(day==4){
+      txtDay = "목요일";
+    }else if(day==5){
+      txtDay = "금요일";
+    }else if(day==6){
+      txtDay = "토요일";
+    }
+
+    // 출력 2024-09-23, 월요일
+    // 출력 2024-10-01, 화요일
+    document.write(year+"-"+(month+1)+"-"+date+","+txtDay);
+  </script>
+  
+</body>
+</html>
