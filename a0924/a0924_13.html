@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>제이쿼리</title>
+  <script>
+    // 제이쿼리 선언, document를 다 읽고나서 ready가 되면 다시 실행해줘. 라는 의미
+    // $(document).ready(function(){
+
+    // });
+//===================
+    // 제이쿼리 선언 약식
+    $(function(){
+      $("#d01").text("안녕하세요.");
+      // document.querySelector("#d01").innerText = "<h1>안녕하세요.</h1>"; - 자바스크립트
+      $("#d01").html("<h1>안녕하세요.</h1>");
+      // document.querySelector("#d01").innerHTML = "<h1>안녕하세요.</h1>"; - 자바스크립트
+      $("#d01").css("background","yellow");
+      // document.querySelector("#d01").style.backgroundColor = "yellow"; - 자바스크립트
+      $(".c01").text("<h1>반가워요.</h1>");
+      // document.querySelector(".c01").innerText = "반가워요."; - 자바스크립트
+      $("#img").attr("src","images/i2.jpg");
+      // document.querySelector("#img").setAttribute("src","images/i2.jpg"); - 자바스크립트
+    });
+
+  </script>
+  <style>
+    #d01{
+      width: 300px; height: 200px; border: 1px solid black;
+    }
+    #img{width: 400px; height: 400px; overflow: hidden;}
+    img{width: 100%;}
+  </style>
+</head>
+<body>
+  <div id="d01">00</div>
+  <div class="c01">00</div>
+  <div id="wrap">
+    <img id="img" src="images/i1.jpg">
+  </div>
+
+  <!-- <script> // 무조건 밑에 있어야 실행됨
+    document.querySelector("#d01").innerText = "안녕하세요.";
+  </script> -->
+</body>
+</html>
