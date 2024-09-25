@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>슬라이드 열림,닫힘,페이드인, 토글</title>
+  <script>
+    
+    // 제이쿼리 구문
+    $(function(){
+
+
+      // 슬라이드 닫힘
+      $(".btn2").click(function(){
+        // $(".box").stop();
+        $(".box").slideUp(1000,"linear",function(){
+          // $(".box").fadeOut(1000,"swing",function(){}
+        });
+      });
+
+      // 슬라이드 열림
+      $(".btn1").click(function(){
+        // $(".box").stop();
+        $(".box").slideDown(1000,"linear",function(){
+        // $(".box").fadeIn(1000,"swing",function(){}
+        });
+      });
+
+      // fade in
+      $(".btn3").on("click",function(){
+        $(".box").fadeIn(500,"swing",function(){
+        });
+      });
+
+      // toggle
+      $(".btn4").on("click",function(){
+        $(".box").stop();
+        $(".box").slideToggle(500,"ease-out");
+      });
+
+      // $("#in").on("mouseover focus",function(){
+      //   $(this).css({"border":"4px solid black", "background":"yellow"});
+      // });
+
+      // $("#in").off("mouseover");
+
+      // $("#in").trigger("mouseover");
+
+
+  // 마우스 올라갔을때
+      // $("#in").mouseover(function(){
+      //   $(this).css({"border":"4px solid black", "background":"yellow"});
+      // });
+
+  // 이 창에 뭐 입력할때(focus 되었을때)
+      // $("#in").focus(function(){
+      //   $(this).css({"border":"4px solid black", "background":"yellow"});
+      // });
+
+  // 마우스 내려갔을때
+      // $("#in").mouseout(function(){
+      //   $(this).css({"border":"1px solid black", "background":"none"});
+      // });
+
+
+    }); // 제이쿼리 구문
+  </script>
+  <style>
+    .content{
+      width: 400px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <!-- <input id="in" type="text"> -->
+  <button class="btn1">슬라이드 펼침</button>
+  <button class="btn2">슬라이드 닫힘</button>
+  <button class="btn3">fade in</button>
+  <button class="btn4">toggle</button>
+  <div class="box">
+    <div class="content">
+      장래에 변호사가 돼 어려운 사람을 돕고 싶어했던 11세 아이가 뇌사장기기증으로 5명에게 새 생명을 선물하고 하늘의 별이 됐습니다.
+      <br>오늘(25일) 한국장기조직기증원에 따르면 지난 7월 31일 건양대학교병원에서 11세 신하율 양이 뇌사장기기증으로 심장과 폐장, 간장, 좌·우 신장을 기증해 5명의 생명을 살렸습니다.
+    </div>
+
+  </div>
+
+  
+</body>
+</html>

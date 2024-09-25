@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>json ajax(어려워...)</title>
+  <script>
+    // jquery 선언
+
+    $(function(){
+      $("#dataBtn").click(function(){
+        alert("데이터 가져오기");
+        $.ajax({
+          url:"js/stuData.json",
+          type:"get",
+          data:"",
+          dataType:"json",
+          success:function(data){
+            //console.log(data);
+     // 데이터 불러와서 표 내용 채우기 ~~~~~~~~~~~~~~
+            var tr_data = "";
+            for(var i=0;i<data.length;i++){
+              
+              var total = data[i].kor+data[i].eng+data[i].math;
+              var avg = total/3;
+
+              tr_data += `<tr id='${data[i].no}'>`;
+              tr_data += `<td>${data[i].no}</td>`;
+              tr_data += `<td>${data[i].name}</td>`;
+              tr_data += `<td>${data[i].kor}</td>`;
+              tr_data += `<td>${data[i].eng}</td>`;
+              tr_data += `<td>${data[i].math}</td>`;
+              tr_data += `<td>${total}</td>`;
+              tr_data += `<td>${avg.toFixed(2)}</td>`;
+              tr_data += `<td><button class='delBtn'>삭제</button></td>`;
+              tr_data += "</tr>";
+            };
+            
+           $("#tbody").html(tr_data);  // tbody 안에 데이터 가져와서 출력하기
+            
+           // 삭제 이벤트 ~~~~~~~~~~~~
+               $(document).on("click",".delBtn",function(){
+                 // alert("동적 이벤트 버튼");
+                 console.log($(this).closest("tr").attr("id"));
+                 var delAll = $(this).closest("tr").attr("id");
+                 $("#"+delAll).remove();
+               });
+           
+          }, // 데이터 불러오기 성공
+          
+          // error ~~~~~~~~~~~~~~~~~
+          error:function(){ // 서버송신 에러시
+            console.log("실패");
+            alert("실패"); }
+            
+          }); //ajax
+          
+
+          
+      }); // dataBtn
+    }); // jquery
+
+   
+  </script>
+  <style>
+    h1{text-align: center;}
+    table,th,td{border: 1px solid black; border-collapse: collapse;}
+    table{width: 80%; margin: 0 auto;}
+    th,td{width: 200px; height: 40px; text-align: center;}
+  </style>
+</head>
+<body>
+  <h1>게시판</h1>
+  <button id="dataBtn">데이터 가져오기</button>
+  <form>
+    <label>이름</label>
+    <input type="text" name="name"><br>
+    <label>국어</label>
+    <input type="text" name="kor" id="kor"><br>
+    <label>영어</label>
+    <input type="text" name="eng"><br>
+    <label>수학</label>
+    <input type="text" name="math"><br>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>이름</th>
+        <th>국어</th>
+        <th>영어</th>
+        <th>수학</th>
+        <th>합계</th>
+        <th>평균</th>
+        <th>삭제</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      
+    </tbody>
+  </table>
+</body>
+</html>
