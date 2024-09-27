@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>데이터불러오기1 - 학생성적프로그램</title>
+  <style>
+    #main{width: 800px; margin: 30px auto; text-align: center;}
+    #wrap{width: 800px; height: 500px; border: 3px solid black; margin-top: 30px;}
+    select{width: 150px; height: 40px; padding-top: 3px;}
+    button{width: 120px; height: 40px;}
+  </style>
+  <script>
+    $(function(){ // 제이쿼리 
+
+      // let labelArr = ['홍길동', '유관순', '강감찬', '김구', '이순신', '김유신', '홍길자', '홍길순', '이세종', '신사임당'];
+      // let dataArr = [99, 100, 30, 50, 20, 30, 70, 80, 40, 85];
+      let labelArr = [];
+      let dataArr = [];
+      
+      // 배열 - 데이터추가 // push, pop, join: 합치기, split: 분리
+
+      let stuUrl = "js/stuData.json";
+
+      // stuBtn 클릭
+      // $(document).on("click","#stuBtn",function(){
+        
+      $.ajax({ // ajax
+        url: stuUrl,
+        type:"get",
+        data:"",
+        dataType:"json",
+        success:function(data){
+          // alert("성공");
+          console.log(data); // 30개
+        //  for(let i=0;i<data.length;i++){
+        //   console.log(data[i].name);
+        //  }
+
+        // 배열 데이터의 idx(index):순번, val(value):데이터값 을 하나씩 빼줌 - 배열일 때만 가능함
+        // index는 0번부터 넘어옴
+        // val.name.split("") - 2개 배열 ['홍', 'keoghan']
+          $.each(data,function(idx,val){
+          // if(idx>9) return;
+          console.log(val.name.split(" ")[1]); // 이름에서 분리해서 하나만 가져옴
+          labelArr.push(val.name.split(" ")[1]); // 위의 데이터를 labelArr에 넣기
+          let score = ((val.kor+val.eng+val.math)/3).toFixed(2)  // toFixed: 자르려면 길이로 인식되어야 하고 그러려면 string이어야함
+          dataArr.push(score);
+          }) // each
+          
+          console.log(labelArr);
+          console.log(dataArr);
+
+        },
+        error:function(){
+          alert("실패");
+        }
+      }); // ajax - 비동기식, 동기식? 장점이자 단점임
+      // }); // stuBtn 클릭
+
+
+      // btn 클릭
+      $(document).on("click","#btn",function(){
+        alert("데이터 불러오기");
+
+  // 데이터 10개 가져오기 ---------------------------------
+        let labelArr2 = [];
+        let dataArr2 = [];
+        let firstNum = 0;
+        let lastNum = 0;
+        console.log("select 값 : "+$("#dataList").val());   // 1-10 데이터
+        lastNum = $("#dataList").val()
+        if($("#dataList").val()==10) firstNum = 0;  // value=10 일때는 첫번째 번호가 0인거부터 10개
+        else if(("#dataList").val()==20) firstNum = 10; // value=20 일때는 첫번째 번호가 10인거부터 10개
+        else if(("#dataList").val()==30) firstNum = 20; // value=30 일때는 첫번째 번호가 20인거부터 10개
+
+        // 해당되는 10개 가져오기
+        for(var i=firstNum;i<lastNum;i++){
+          labelArr2.push(labelArr[i]); // 10개만 들어옴
+          dataArr2.push(dataArr[i]); // 10개만 들어옴
+        }
+
+        console.log(labelArr2);
+        console.log(dataArr2);
+
+  // 그래프 그리기 ---------------------------------
+        const ctx = document.getElementById('myChart');
+
+        let chartstatus = Chart.getChart("myChart");
+        if(chartstatus != undefined){ // 사용중이면
+          console.log("success");
+          chartstatus.destroy(); // 제거시켜줘!
+        }
+
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labelArr,
+            datasets: [{
+              label: '학생성적프로그램',
+              data: dataArr,
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+      }); // btn 클릭
+
+    }); // 제이쿼리 
+  </script>
+</head>
+<body>
+  <div id="main">
+    <select name="dataList" id="dataList">
+      <option value="10">1-10</option>
+      <option value="20">11-20</option>
+      <option value="30">21-30</option>
+    </select>
+    <button id="btn">데이터 불러오기</button>
+    <br><br>
+    <!-- <button id="stuBtn">학생데이터</button> -->
+    <!-- <br> -->
+    <h1>학생성적프로그램</h1>
+    <div id="wrap">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  
+</body>
+</html>
