@@ -50,7 +50,7 @@ while True:
   print("1. 학생성적입력")
   print("2. 학생성적출력")
   print("3. 학생성적수정")
-  choice = int(input("원하는 메뉴 번호를 입력하세요. >> "))
+  choice = pip install requestsint(input("원하는 메뉴 번호를 입력하세요. >> "))
 
   if choice == 1:
     print("[ 학생 성적 입력 ]")
