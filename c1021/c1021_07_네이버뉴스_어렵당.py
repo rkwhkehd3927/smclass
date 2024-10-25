@@ -10,7 +10,6 @@ soup = BeautifulSoup(res.text,"lxml")
 
 newsLists = soup.find("div",{"class":"rankingnews_box_wrap"}).find_all("div",{"class":"rankingnews_box"})
 
-
 # 12번 반복
 print("개수 : ",len(newsLists)) # 12
 
