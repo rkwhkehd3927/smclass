@@ -42,7 +42,7 @@ jobs:
         python -m pip install --upgrade pip
 
     # 필요한 파일 설치
-    - name: libary install
+    - name: library install
       run: |
         pip install requests
         pip install beautifulsoup4
