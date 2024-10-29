@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
+
 # email 발송관련
 import smtplib
 from email.mime.text import MIMEText
@@ -34,10 +36,10 @@ f.close()
 smtpName = "smtp.naver.com"
 smtpPort = 587
 
-# 자신의 네이버메일주소,pw, 받는사람이메일주소
-sendEmail = "1111"
-pw = "1111"
-recvEmail = "1111"
+# 네이버 메일주소,pw, 받는사람이메일주소
+sendEmail = "rkwhkehd3927@naver.com"
+pw = "MDHHDW1ZDM8R"
+recvEmail = "rkwhkehd3927@naver.com"
 
 title = "랭킹뉴스"
 content = "랭킹뉴스 파일을 첨부합니다."
@@ -63,3 +65,5 @@ s.sendmail(sendEmail,recvEmail,msg.as_string())
 print("msg : ")
 print(msg.as_string())
 s.quit()
+
+print("메일이 발송되었습니다.!")
