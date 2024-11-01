@@ -502,7 +502,7 @@ insert into mem values(
 
 commit;
 
-select * from mem;
+select * from students;
 
 -- update mem set pw='3333' where id='ccc';
 
@@ -516,3 +516,6 @@ select count(*) no,a.department_id dept, department_name deptname
 from employees a, departments b 
 where a.department_id = b.department_id and a.department_id=50
 group by a.department_id,department_name;
+
+
+desc students;
