@@ -132,3 +132,12 @@ select 'axyz', replace('abxdsdasdxyyzx','xy','ab') from dual; -- abxdsdasdabyzx:
 -- students 테이블 name의 글자길이가 10자 이상인 학생만 출력
 -- count는 검색되는 값의 개수
 select name from students where length(name)>=10;
+
+-- 사원 월급의 합, 평균 구하기
+select sum(salary),round(avg(salary),2) from employees;
+
+-- 영어점수의 합, 평균, 최대값, 최소값 구하기
+select sum(eng), round(avg(eng),2), max(eng), min(eng) from students;
+
+-- students 테이블에서 홍길동, "등록일: 2023년 12월 02일 x요일 등록!" 이런 식으로 출력
+select name, to_char(sdate, '"등록일: "yyyy"년" mm"월" dd"일" day "등록!"') from students;
