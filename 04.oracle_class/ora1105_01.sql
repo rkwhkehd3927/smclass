@@ -431,3 +431,4 @@ select ranks from(
 select no,name,kor,eng,math,total,round(avg,2),rank() over(order by avg desc) as ranks, 
 to_char(sdate,'yyyy-mm-dd') from students) b 
 where a.no=b.no);
+commit;
