@@ -1,3 +1,20 @@
+# [영화 순위] = 웹스크래핑
+# 2020~2023년 영화내용 저장
+# -csv 파일로 저장
+# -이미지 저장
+# -제목,
+# -관객수: 숫자 입력
+# 1,312 -> 1312
+# -날짜
+
+# DataFrame 변경
+# 관객수
+# -> 최대값
+# -> 최소값
+# -> 평균
+# -> 최대관객수 5개
+# -> 최소관객수 5개 출력
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -31,22 +48,24 @@ for i in range(4):
 
   data = soup.select_one("#mor_history_id_0 > div > div.flipsnap_view > div > div.flipsnap_item")
   areas = data.select("c-flicking-item > c-layout > div > c-list-doc > ul > li")
-  # print(len(areas))
+  # print(len(areas)) # 개수를 한번 체크해보고 다음으로 넘어갈 것
 
 
   for idx, area in enumerate(areas):
     try:
       title = area.select_one("div.item-title > c-title > strong > a").text.strip()
-      people = area.select_one("c-doc > div > div.item-bundle-mid > div.item-contents > c-contents-desc > p > a").text.strip().replace("\n","").replace(" ","")[2:]
-      if '만명' in people:
-        people = int(people)*10000
-      else:
-        people 
-      mdate = "."
+      people = int(area.select_one("c-doc > div > div.item-bundle-mid > div.item-contents > c-contents-desc > p > a").text.strip()[3:-1].replace(",",""))
+      # if '만' in people:
+      #   people = people*10000
+      # else:
+      #   people
+      mdate = area.select_one("c-doc > div > div.item-bundle-mid > div.item-contents > c-contents-desc-sub > span").text.strip()[:-1]
 
       print("영화 제목: ",title)
       print("누적 관객수: ",people)
+      print("날짜: ",mdate)
 
     except Exception as e:
       print(f"{idx+1}번째 에러",e)
       print("-"*30)
+      
