@@ -1,19 +1,19 @@
 # This workflow will install Python dependencies, run tests and lint with a variety of Python versions
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 
-name: 최신 뉴스 모음
+# name: 최신 뉴스 모음
 
 # 어떤 조건일 때, 시점으로 실행시킬지 정의
 # 특정시간이 될 때마다 실행
 
-on:
+# on:
   # cron 표현식 사용
   # 참조사이트 : https://crontab.guru/
   # - cron : "0 9 * * *" # 매일 9시마다 메일 전송
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  # push:
+    # branches: [ "main" ]
+  # pull_request:
+    # branches: [ "main" ]
 
 jobs:
   build:
@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-latest
 
     # 파일 저장 권한 부여
-    permissions:
-      contents : write
+    # permissions:
+      # contents : write
     
     # strategy:
     #   fail-fast: false
@@ -57,16 +57,16 @@ jobs:
     # 커밋
     - name: commits
       run: |
-        git config --global user.email "@naver.com"
-        git config --global user.name "Jin"
+        # git config --global user.email "@naver.com"
+        # git config --global user.name "Jin"
         # csv,txt 파일 추가
-        git add news.txt
-        git commit -m "최신 뉴스 모음"
+        # git add news.txt
+        # git commit -m "최신 뉴스 모음"
 
     # push 작업 실행
     - name: push
       uses: ad-m/github-push-action@master
-      with:
+      # with:
         branch: "main"
 
     
