@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인페이지</title>
+  <script>
+    if("{{lmsg}}" == "1"){
+        alert("로그아웃 되었습니다.")
+        location.href="/"
+    }
+</script>
+</head>
+<body>
+  <h2>메인페이지</h2>
+  {% if not request.session.session_id %}
+  <ul>
+    <li><a href="/member/login/">Login</a></li>
+  </ul>
+  {%else%}
+  <ul>
+    <li><a href="/member/logout/">Logout</a></li>
+    <li><a href="/admin/">Admin</a></li>
+    <li><a href="/board/blist/">게시판리스트</a></li>
+    <li><a href="/admin/">회원정보</a></li>
+    <li><a href="/admin/">회원전체리스트</a></li>
+
+  </ul>
+  {%endif%}
+</body>
+</html>
