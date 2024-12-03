@@ -1,0 +1,33 @@
+
+*{margin:0; padding:0; list-style: none;}
+.tempMenu{width: 500px; border: solid 1px black;}
+.tempMenu li{margin:10px; padding:10px; display: inline-block;}
+li{list-style: none;}
+#container{width:100%; height:2000px; border: solid 1px black; 
+  padding:100px 0; display: inline-block; box-sizing: border-box;}
+#memberBenefit{width: 1500px; margin: 0 auto; border: solid 1px black;}
+.sub_title{border: solid 1px black; height: 100px; text-align: center;}
+.sub_title span{margin-top: 20px; border: solid 1px black; font-size: 50px;}
+
+.tab{width: 1500px; height: 100px; border: solid 1px black;}
+.tab li{border: solid 1px black; float: left;
+  margin-left: 200px; margin-top: 5px; padding: 30px; }
+.tab li:nth-child(1) {width: 100px; margin-left: 110px; text-align: center;} 
+.tab li:nth-child(2) {width: 100px; text-align: center;} 
+.tab li:nth-child(3) {width: 100px; text-align: center;} 
+.tab button{background-color: white; border:none; font-size: 20px; }
+
+.calendar_chk_wrap{width: 1500px;}
+
+.today_attend_chk{display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;}
+.tit_attend_chk{margin: 100px auto; text-align: center;}
+.tit_attend_chk span{font-size: 80px;}
+.attend_chk_desc{text-align: center; margin: 150px;}
+.month_attend_chk_count{margin: 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background-color: pink; width: 200px; height:200px; border-radius: 50%; }
+.month_attend_chk_count_box{ padding:30px; text-align: center; line-height: 65px; }
+.month_attend_chk_count_box p{box-sizing: border-box; margin: 5px 0;}
+.tit_chk_count{line-height: 30px;}
+.chk_count_num{margin: 5px; font-size: 80px;}
+.btn_today_attend_chk{width: 200px; height: 100px;
+  background-color: white; border-radius:30px; border:solid 3px black; font-size: 20px; display: block; margin: 100px auto;}
