@@ -62,29 +62,36 @@
         -->
 
         <script>
-
-
           $(function(){
-            const csrfToken = $("meta[name='csrf-token']").attr("content"); // attr=속성값(?)
+            const csrfToken = $("meta[name='csrf-token']").attr("content"); // csrfToken을 가져옵니다.
+            
+            // ########### 1. 출석 체크 이벤트
             $(".btn_today_attend_chk").click(function(){
+              const aId = "{{request.session.session_id}}"; // 세션 ID를 확인함
               alert("테스트")
-              if("{{request.session.session_id}}" == ""){
+
+              // 세션이 비어있으면 로그인 페이지로 리다이렉트
+              if(aId == ""){
                 alert("로그인을 하셔야 출석체크가 가능합니다.")
                 location.href="/member/login/"
-                return
+                return;
               }
 
 
-              $.ajax({ //ajax
+              // 출석체크 Ajax 요청
+              $.ajax({ 
                 headers:{"X-CSRFToken":csrfToken},
                 url:"/event/calendar/",
                 type:"post",
-                data:{"aId":"{{request.session.session_id}}","aDate":new Date().toISOString().split('T')[0]},
+                data:{
+                  "aId":aId,
+                  // "aDate":new Date().toISOString().split('T')[0] // 현재 날짜를 ISO 8601 형식으로 문자열로 변환한 후, 날짜 부분만 추출하여 전달
+                },
                 success:function(data){
                   console.log("data.result: "+data.result);
                   if(data.result == "success"){
                     alert("출석체크 완료");
-                    $(".chk_count_num").text(data.count);
+                    $(".chk_count_num").text(data.count); // 출석 횟수를 화면에 업데이트
                   }else if(data.result == "already_checked"){
                     alert("이미 출석체크를 하셨습니다.");
                   }else{
@@ -92,11 +99,54 @@
                   }
                 },
                 error:function(){
-                  alert("에러세요.")
+                  alert("에러 발생.");
                 }
               }); //ajax */
 
-            }); // btn()
+            }); // 출석btn()
+
+
+            // ############# 2. 응모권 
+            $(document).on("click",".btn_apply_event_coupon",function(){
+              if(confirm("번 쿠폰에 응모하시겠습니까?")){
+                alert("응모완료")
+
+
+
+                // 응모하기 Ajax 요청
+              $.ajax({ 
+                headers:{"X-CSRFToken":csrfToken},
+                url:"/event/apply/",
+                type:"post",
+                data:{
+                  "aId":aId,
+                  // "aDate":new Date().toISOString().split('T')[0] // 현재 날짜를 ISO 8601 형식으로 문자열로 변환한 후, 날짜 부분만 추출하여 전달
+                },
+                success:function(data){
+                  console.log("data.result: "+data.result);
+                  if(data.result == "success"){
+                    alert("출석체크 완료");
+                    $(".chk_count_num").text(data.count); // 출석 횟수를 화면에 업데이트
+                  }else if(data.result == "already_checked"){
+                    alert("이미 출석체크를 하셨습니다.");
+                  }else{
+                    alert("에러");
+                  }
+                },
+                error:function(){
+                  alert("에러 발생.");
+                }
+              }); //ajax */
+
+              }
+            })
+
+
+
+
+
+
+            
           }); // jquery
         </script>
 
@@ -113,7 +163,11 @@
               <div class="month_attend_chk_count"> <!-- 출석체크 영역 -->
                 <div class="month_attend_chk_count_box">
                   <p class="tit_chk_count">이달의 출석횟수</p>
-                  <p class="chk_count_num"><!--이달의 출석횟수-->{{Attendance.count}}</p>
+                  {% if count == 0 %}
+                  <p class="chk_count_num"><!--이달의 출석횟수-->0</p>
+                  {% else %}
+                  <p class="chk_count_num"><!--이달의 출석횟수-->{{count}}</p>
+                  {% endif %}
                 </div>
               </div>
               <button type="button" id="stamp_btn" class="btn_today_attend_chk"><span>출석체크하기</span></button>
@@ -131,7 +185,11 @@
               <div class="attend_event_ticket">
                 <p class="attend_event_ticket_item">
                   잔여 응모권
-                  <strong>1</strong>
+                  {% if aNumber == 0 %}
+                  <strong>0</strong>
+                  {% else %}
+                  <strong>{{aNumber}}</strong>
+                  {% endif %}
                 </p>
                 <p class="attend_event_ticket_item st_use_complete">
                   사용한 응모권

@@ -17,3 +17,4 @@ def bview(request,bno):
   print("확인: ", c_qs, c_qs.count)
   context = {"board":qs[0],"clist":c_qs}
   return render(request, 'bview.html', context)
+

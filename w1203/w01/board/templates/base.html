@@ -22,80 +22,23 @@
 <script type="text/javascript" src="{% static '/js/jquery.anchor.js'%}"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <style>a{cursor: pointer;}</style>
-
 <script type="text/javascript">
 	$(document).ready(function() {
 		
-		var mySwiper = new Swiper('#mainRoll',{
-			pagination: '#mainThum',
-			paginationClickable: true,
-			slidesPerView: 1,
-			loop: true,
-			autoplay:5000
-		});
-	
-		var mySwiper2 = new Swiper('#bestseller',{
-			paginationClickable: true,
-			slidesPerView: 3,
-			loop: true,
-			autoplay:3000
-		});
-	
-		var mySwiper3 = new Swiper('#mainSale',{
-			paginationClickable: true,
-			slidesPerView: 5,
-			loop: true,
-			autoplay:3000
-		});
 		
-		$(window).bind('resize', function() {
-			rollwidth();	
-		});
-	
-		function rollwidth(){
-			var winWidth = $(window).width();
-			if(winWidth < 768){
-				mySwiper2.params.slidesPerView = 1;
-				mySwiper3.params.slidesPerView = 2;
-			}else{
-				mySwiper2.params.slidesPerView = 3;
-				mySwiper3.params.slidesPerView = 5;
-			}
-		}
-		$('.arrowLeft').bind('click', function(e){
-			e.preventDefault()
-			mySwiper2.swipePrev()
-		});
-		$('.arrowRight').bind('click', function(e){
-			e.preventDefault()
-			mySwiper2.swipeNext()
-		});
-	
-		$('.saleLeft').bind('click', function(e){
-			e.preventDefault()
-			mySwiper3.swipePrev()
-		});
-		$('.saleRight').bind('click', function(e){
-			e.preventDefault()
-			mySwiper3.swipeNext()
-		});
-	
-		rollwidth();
-	
-	
-		var myWish = new Swiper('#wishList',{
-			paginationClickable: true,
-			slidesPerView: 3,
-			loop: true,
-			autoplay:3000
-		});
-	
-	
 		//로그아웃
+		/*
+		$(document).on("click","#logout",function(){
+			alert("로그아웃 되었습니다.")
+			location.href="/member/logout/"
+			
+		})
+		*/
+		
 		$("#logout").click(function(){
 			alert("로그아웃 되었습니다.")
 			location.href="/member/logout/"
-	
+			
 		})
 	
 	});
@@ -117,7 +60,7 @@
 				<ul>
 					<li><a href="#">EVENT</a></li>
 					<li><a href="#">CUSTOMER</a></li>
-					<li><a href="#">COMMUNITY</a></li>
+					<li><a href="/board/blist/">COMMUNITY</a></li>
 				</ul>
 			</div>
 			<div id="snb">
@@ -126,7 +69,7 @@
 					<li><a href="/member/login/">LOGIN</a></li>
 					<li><a href="#">JOIN</a></li>
 					{% else %}
-					<li><a id='logout'>LOGOUT</a></li>
+					<li id='logout'><a>LOGOUT1</a></li>
 					<li><a href="#">회원정보</a></li>
 					{% endif %}
 					<li><a href="#">MY PAGE</a></li>
@@ -206,15 +149,15 @@
 
 		<script type="text/javascript">initTopMenu();</script>
 	</div>
-	<!-- //GNB 공통영역 --> 
+	<!-- //GNB 공통영역 -->
 
-	<!-- container 다른영역 --> 
-	 {% block container-block%}
-	 
-	 {% endblock container-block%}
-	<!-- //container -->
+	<!-- container 다른영역 -->
+	{% block container-block  %}
 
-	<!-- footerWrap 공통영역 --> 
+	{% endblock container-block  %}
+	<!-- //container 다른영역 -->
+	
+	<!-- footerWrap 공통영역 -->
 	<div id="footerWrap">
 		<div id="footer">
 			<div id="fnb">
@@ -245,8 +188,6 @@
 			</div>
 		</div>
 	</div>
-	<!-- //footerWrap --> 
-	
 
 
 
@@ -254,3 +195,4 @@
 </div>
 </body>
 </html>
+<!-- // footerWrap 공통영역 -->

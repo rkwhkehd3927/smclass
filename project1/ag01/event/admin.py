@@ -3,4 +3,4 @@ from event.models import Attendance
 
 @admin.register(Attendance)
 class AttendanceAdmin(admin.ModelAdmin):
-  list_display = ['aDate','count']
+  list_display = ['aId','aDate','count','aNumber']

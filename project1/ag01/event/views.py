@@ -1,29 +1,57 @@
 from django.shortcuts import render
-from django.http import JsonResponse,HttpResponse
-from django.core import serializers # json 타입
+from django.http import JsonResponse
 from django.utils import timezone
 from member.models import Member
 from event.models import Attendance
+from datetime import date
+from django.db.models import F
+
 
 
 def calendar(request):
   if request.method == "GET":
-    return render(request, 'calendar.html')
-  else:
-    # qs = Member.objects.filter(id=aId)
-    aId = request.session['session_id']
-    today = timezone.now().date()
-    print(aId)
-    attendance = Attendance.objects.get(aId=aId)
-    if attendance.last_checked != today:
-      attendance.count += 1
-      attendance.last_checked = today
-      attendance.aDate = today    
-      attendance.save()
-      return JsonResponse({"result":"success","count":attendance.count})
+    aId = request.session.get('session_id')
+    qs = Attendance.objects.filter(aId=aId)
+    if qs:
+      context = {"count":qs[0].count,"aNumber":qs[0].aNumber}
     else:
-      return JsonResponse({"result":"already_checked"})
+      context = {"count":0,"aNumber":0}
+    return render(request, 'calendar.html',context)
+  else:
+    # 세션에서 aId 가져오기
+    aId = request.session.get('session_id')
+    today = date.today() # 오늘 날짜 today에 저장
+    print(aId,today)
+
+    # Attendance 객체 가져오기 (사용자별로 출석 기록을 가져옴)
+    qs = Attendance.objects.filter(aId=aId)
+
+    ## 매달 1일에 count 리셋
+    first_day_of_month = today.replace(day=1)
+
+    if today == first_day_of_month:
+      qs[0].count = 0 # 카운트 리셋
+      qs[0].aNumber = 0
+      qs[0].save()
+      print("카운트 리셋 count",qs[0].count)
 
 
+    # aDate과 today 비교
+    if qs:
+      if qs[0].aDate != today:
+        qs[0].aDate = today
+        qs.update(count=F('count')+1) # 출석 횟수 추가
+        qs.update(count=F('aNumber')+1) # 응모권 개수 추가
+        context = {"result":"success","count":qs[0].count,"aNumber":qs[0].aNumber}
+      else:
+        context = {"result":"already_checked"}
+    else:
+      Attendance.objects.create(aId=aId,aDate=today,count=1,aNumber=1)
+      context = {"result":"success","count":1,"aNumber":1}
+    return JsonResponse(context)
+    
+     
 
-  
+def apply(request):
+  return render(request, 'calendar.html')
+

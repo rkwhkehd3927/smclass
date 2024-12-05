@@ -1,10 +1,13 @@
 from django.db import models
 
 class Attendance(models.Model):
-  aId = models.CharField(max_length=100)
+  #aaa,7,2024-12-05,2024-12-05
+  aId = models.CharField(max_length=200,primary_key=True)
   count = models.IntegerField(default=0)
-  aDate = models.DateTimeField(max_length=100,auto_now=True)
-  last_checked = models.DateTimeField(null=True, blank=True)
-
+  aDate = models.DateField(max_length=100) # 출석 버튼 누르는 시각
+  aNumber = models.IntegerField(default=0) # 응모권 개수
   def __str__(self):
-    return f"{self.aId},{self.count}"
+    return f"{self.aId},{self.count},{self.aDate}"
+  
+
+  
