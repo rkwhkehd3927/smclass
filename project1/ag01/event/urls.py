@@ -5,5 +5,6 @@ app_name = 'event'
 urlpatterns = [
     path('calendar/', views.calendar, name='calendar'),
     path('apply/', views.apply, name='apply'),
+    path('coupon/', views.coupon, name='coupon'),
 ]
 

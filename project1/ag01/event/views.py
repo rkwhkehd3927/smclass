@@ -40,6 +40,7 @@ def calendar(request):
     if qs:
       if qs[0].aDate != today:
         qs[0].aDate = today
+        qs[0].save()
         qs.update(count=F('count')+1) # 출석 횟수 추가
         qs.update(count=F('aTicket')+1) # 응모권 개수 추가
         context = {"result":"success","count":qs[0].count,"aTicket":qs[0].aTicket}
@@ -69,3 +70,8 @@ def apply(request):
       context = {"result":"success","aTicket":qs[0].aTicket,"usedTicket":qs[0].usedTicket}
       return JsonResponse(context)
 
+
+
+# 쿠폰 리스트
+def coupon(request):
+  return render(request, 'coupon.html')
