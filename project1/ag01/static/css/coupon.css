@@ -48,3 +48,57 @@ li{list-style: none;}
 .coupon_notice{font-size: 12px; margin-top: 10px; float: s;}
 
 
+/* 쿠폰코드 입력란 */
+
+
+.couponCode_wrap {
+  margin: 0 auto;
+}
+.couponCode {
+  border: solid 1px black;
+  margin: 0 auto;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #838383;
+  width: 800px;
+  height: 75px;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+.couponCode input::placeholder {
+  color: #df5050;
+}
+
+.inputCoupon-btn {
+  color: #EDEDED;
+  float: right;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+
+}
+
+.input_couponCode {
+  /* border: solid 1px black; */
+  float: left;
+  padding: 0;
+  background: none;
+  border: none;
+  outline: none;
+  color: black;
+  width: 700px;
+  height: 50px;
+  font-size: 15px;
+  text-align: center;
+  margin-left: 15px;
+}
+
+

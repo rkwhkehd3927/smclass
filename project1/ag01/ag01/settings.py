@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'home',
     'event',
     'member',
+    'coupon',
 ]
 
 MIDDLEWARE = [

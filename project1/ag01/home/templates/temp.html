@@ -142,38 +142,33 @@
           
         <!-- About-->
         <section class="page-section bg-primary" id="about">
-            <div class="swiper mySwiper2">
+
+            <div class="swiper-container mySwiper2">
                 <div class="row justify-content-center swiper-wrapper">
                   <div class="evt_swiper-slide">
-                    <div class="evt_swipe_images">
-                      <h4>이벤트1</h4>
-                      <img src="{% static '/images/main/ev03.jpg' %}" alt="이미지 없음" width="100%">
-                    </div>
+                    <h4>이벤트1</h4>
+                    <img src="{% static '/images/main/ev03.jpg' %}" alt="이미지 없음" width="100%">
                   </div>
                   <div class="evt_swiper-slide">
-                    <div class="evt_swipe_images">
-                      <h4>이벤트2</h4>
-                      <img src="{% static '/images/main/ev02.jpg' %}" alt="이미지 없음">
-                    </div>
+                    <h4>이벤트1</h4>
+                    <img src="{% static '/images/main/ev03.jpg' %}" alt="이미지 없음" width="100%">
                   </div>
-                  <div class="evt_swiper-slide">
-                    <div class="evt_swipe_images">
-                      <h4>이벤트3</h4>
-                      <img src="{% static '/images/main/ev03.jpg' %}" alt="이미지 없음">
-                    </div>
-                  </div>
+                
                  
                  
                   
                 </div>
+                <!-- 네비게이션 버튼 -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
+                <!-- 페이징 -->
                 <!-- <div class="swiper-pagination"></div> -->
             </div>
+
         </section>   
         
         <script>
-          var swiper1 = new Swiper(".mySwiper", {
+          new Swiper(".mySwiper", {
               slidesPerView: 4,
               spaceBetween: 40,
               pagination: {
@@ -182,7 +177,7 @@
               },
           });
 
-          var swiper2 = new Swiper(".mySwiper2", {
+          new Swiper(".mySwiper2", {
               slidesPerView: 1,
               spaceBetween: 30,
               pagination: {
