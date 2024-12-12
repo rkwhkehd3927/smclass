@@ -5,6 +5,10 @@
   <meta charset="UTF-8">
   <meta name="csrf-token" content="{{ csrf_token }}">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{% static '/css/coupon.css'%}" />
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="{% static '/js/event.js'%}"></script>
@@ -50,7 +54,7 @@
                 // 출석체크 Ajax 요청
           $.ajax({ 
             headers:{"X-CSRFToken":csrfToken},
-            url:"/event/calendar/",
+            url:"/event/point/",
             type:"post",
             data:{
               "aId":aId,
@@ -60,8 +64,9 @@
               if(data.result == "success"){
                 // alert("출석체크 완료");
                 $(".amount_of_points").text(data.point); // 출석 횟수를 화면에 업데이트
-              }else if(data.result == "already_checked"){
-                alert("오늘 포인트 적립 더 못함");
+              }else if(data.result == "notLogin"){
+                alert("미로그인");
+                $(".amount_of_points").text(data.point); // 출석 횟수를 화면에 업데이트
               }else{
                 alert("에러");
               }
@@ -82,19 +87,21 @@
 
         <div class="content1 tab_content active">
           <!-- 출석체크 -->
-          <form action="/event/point/" method="post" name="cpnFrm">
+          <form action="/event/point/" method="post" name="pntFrm">
             {% csrf_token %}
 
           <!-- 임시 포인트 띄우기 -->
+           <!-- 미로그인이랑 포인트가 0일 때 다르게 띄워야할 거같은데 뭔가 오류...?-->
             <div class="section special_coupon_section">
               <h3 class="section_tit">ANG POINT TEMP</h3>
               <div class="ang_point">
                 <p class="how_many_point">포인트 임시 뷰</p>
                   {% if point != 0 %}
                   <p class="amount_of_points"><!--포인트 있을 때-->{{point}}</p>
-                  {% elif not request.session.session_id %}
-                  <p class="not_login"><!--포인트 없을 때-->미로그인</p>
-                  {% elif point == 0 %}
+                  {% comment %} {% elif not request.session.session_id %}
+                  <p class="not_login"><!--포인트 없을 때-->미로그인</p> {% endcomment %}
+                  {% else %}
+                  {% comment %} {% elif point == 0 %} {% endcomment %}
                   <p class="no_point"><!--포인트 없을 때-->0</p>
                   {% endif %}
               </div>

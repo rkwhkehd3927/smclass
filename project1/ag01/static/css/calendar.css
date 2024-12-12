@@ -4,11 +4,29 @@
   padding:0; 
   list-style: none;
 }
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+button {
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
 a:visited {
   color: inherit;
 }
 a {
   text-decoration-line: none;
+}
+
+.logoAg {
+  color: #ff9e44;
+  font-size: 50px;
 }
 .tempMenu {
   width: 500px; 
@@ -107,7 +125,7 @@ li {
   flex-direction: column; 
   align-items: center; 
   justify-content: center;
-  background-color: pink; 
+  background-color: #ff9e44; 
   width: 200px; 
   height:200px; 
   border-radius: 50%; 
@@ -352,7 +370,7 @@ li {
   right: 50px; /* 브라우저 오른쪽 끝에서부터의 거리 */
   cursor: pointer;
   z-index: 99;
-  background-color: pink;
+  background-color: #ff9e44;
 }
 
 /* DOWN */
@@ -367,11 +385,12 @@ li {
   right: 50px; /* 브라우저 오른쪽 끝에서부터의 거리 */
   cursor: pointer;
   z-index: 99;
-  background-color: pink;
+  background-color: #ff9e44;
 }
 
 .scrollUp i, .scrollDown i {
   margin: auto;
   text-align: center;
   font-size: 25px;
+  color: #ffffff;
 }

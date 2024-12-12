@@ -69,7 +69,7 @@ $(document).ready(function() {
         console.log("data.result: "+data.result);
         if(data.result == "success"){
           alert("출석체크 완료");
-          $(".chk_count_num").text(data.aCount); // 출석 횟수를 화면에 업데이트
+          $(".chk_count_num").text(data.count); // 출석 횟수를 화면에 업데이트
           $(".chk_event_ticket_num").text(data.aTicket); // 응모권 개수를 화면에 업데이트
         }else if(data.result == "already_checked"){
           alert("이미 출석체크를 하셨습니다.");
@@ -84,7 +84,7 @@ $(document).ready(function() {
   }); // 출석btn()
 
 
-  // ############# 2. 응모권 
+  // ############# 2. 응모권 차감
   $(document).on("click",".btn_apply_event_coupon",function(){
     // alert("테스트")
     var couponName = $(this).closest('.attend_event_coupon_bundle').find('.event_cpn_name').text().trim();

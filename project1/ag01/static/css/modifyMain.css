@@ -1,4 +1,9 @@
 
+body{
+  font-family: "Noto Sans KR", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
 /* 헤더 */
 a:visited {color: inherit;}
 a{text-decoration-line: none;}
@@ -7,7 +12,7 @@ a{text-decoration-line: none;}
 .hashtag_box {
   width: 800px;
   height: 200px;
-  border: solid 1px black;
+  /* border: solid 1px black; */
   display: inline-block;
   margin-top: 30px;
 
@@ -17,24 +22,37 @@ a{text-decoration-line: none;}
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px black;
   margin-top: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+
+  /* border: solid 1px black; */
   
 }
 
 .hashtagList li { 
-  border: solid 1px black;
-  border-radius: 15px;
+  /* border: solid 1px black; */
+  border-radius: 40px;
   background-color: white;
   color: black;
   width: 150px;
   height: 50px;
-  margin: 0 20px;
+  margin: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 
+}
+
+.hashtagList li:hover {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.25), 0 8px 8px rgba(0,0,0,0.22);
+}
+
+
+
+.hashtagList a:hover {
+  color: #ff9e44;
 }
 
 .hashtagList li p {
@@ -48,14 +66,14 @@ a{text-decoration-line: none;}
   margin: 0 auto;
 }
 .search-box {
-  border: solid 1px black;
+  /* border: solid 1px black; */
   margin: 0 auto;
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   /* 위치는 추후 변경 */
-  background-color: #4affb4;
+  background-color: #ffffff;
   width: 800px;
   height: 75px;
   padding: 10px;
@@ -63,16 +81,18 @@ a{text-decoration-line: none;}
 }
 
 .search-box input::placeholder {
-  color: #c0c0c0;
+  color: #60212e;
+  font-weight: 500;
+  opacity: 70%;
 }
 
 .search-btn {
-  color: #EDEDED;
+  color: #ffffff;
   float: right;
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: black;
+  background: #ff9e44;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,6 +126,8 @@ a{text-decoration-line: none;}
 }
 
 .swiper-slide {
+  width: 100%;  /* 슬라이드 크기를 100%로 설정 */
+  height: 100%;
   overflow: hidden;
   position: relative;
   border-radius: 10%;
@@ -115,6 +137,7 @@ a{text-decoration-line: none;}
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border: solid 1px black; */
 }
 
 .swiper-slide img {
@@ -160,3 +183,84 @@ a{text-decoration-line: none;}
 
 
 /* 이벤트 */
+.event_container_main {
+  background-color: #ff9e44;
+}
+
+
+
+/* 맨 하단 */
+.footer {
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 40px;
+}
+
+/* .ftnavi와 .right 두 div의 크기 및 배치 */
+.ftnavi, .right {
+  box-sizing: border-box;
+}
+
+.ftnavi {
+  width: 350px;
+  height: 150px;
+  box-sizing: border-box;
+  border: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+}
+.ftnavi ul {
+  /* display: flex;  */
+  color: #60212e; 
+  box-sizing: border-box; 
+}
+.ftnavi li {
+  list-style: none;
+}
+
+.footer .ftnavi li a {
+  font-size: 14px; 
+  font-weight: 300; 
+  letter-spacing: -0.03em; 
+  margin: 0 34px 10px 0;
+}
+.footer .ftnavi li:nth-child(3) a, .footer .ftnavi li:nth-child(4) a {
+  font-size: 14.28px; 
+  font-weight: 600;
+}
+.footer .ftnavi .addr {
+  padding-top: 32px; 
+  color: #767676; 
+  font-size: 14px; 
+  font-weight: 400; 
+  letter-spacing: -0.05em;
+}
+.footer .ftnavi .addr p {
+  margin-bottom: 8px;
+}
+.footer .ftnavi .addr span {
+  margin: 0 10px;
+}
+.footer .ftnavi .tel span {
+  margin: 0 7px;
+}
+.footer .ftnavi .addr .copy {
+  padding-top: 25px; 
+  font-size: 11px; 
+  font-weight: 300; 
+  letter-spacing: 0.08em;
+}
+.right {
+  width: 248px; 
+  height: 265px; 
+  box-sizing: border-box;
+  border: solid 1px black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* 텍스트가 왼쪽 정렬되도록 */
+
+}
+

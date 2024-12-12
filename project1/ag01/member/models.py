@@ -14,4 +14,4 @@ class Member(models.Model):
   mdate = models.DateTimeField(max_length=100,auto_now=True)
 
   def __str__(self):
-    return f"{self.id},{self.name},{self.mdate}"
+    return f"{self.id},{self.name},{self.mdate},{self.point}"
