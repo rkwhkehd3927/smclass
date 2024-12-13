@@ -27,7 +27,7 @@
   </ul>
    
   <!-- container -->
-  <section id="container">
+  <section id="container" data-id="{{request.session.session_id}}">
     <div id="memberBenefit">
       <input type="hidden" id="focusarea" value="">
       <div class="sub_title_wrap">
@@ -48,8 +48,13 @@
         $(document).ready(function(){
           const csrfToken = $("meta[name='csrf-token']").attr("content"); // csrfToken을 가져옵니다.
           // 얘도 임시니까 일단 이렇게 쓰겠음
-          const aId = "{{request.session.session_id}}"; // 세션 ID를 확인함
+          var aId = $("section").data("id");
           console.log("aId: " + aId);
+
+          if(aId == ""){
+            var point = "미로그인"
+            $(".not_login").text(point);
+          }
 
                 // 출석체크 Ajax 요청
           $.ajax({ 
@@ -98,8 +103,8 @@
                 <p class="how_many_point">포인트 임시 뷰</p>
                   {% if point != 0 %}
                   <p class="amount_of_points"><!--포인트 있을 때-->{{point}}</p>
-                  {% comment %} {% elif not request.session.session_id %}
-                  <p class="not_login"><!--포인트 없을 때-->미로그인</p> {% endcomment %}
+                  {% elif point == "미로그인" %}
+                  <p class="not_login"><!--포인트 없을 때-->{{point}}</p>
                   {% else %}
                   {% comment %} {% elif point == 0 %} {% endcomment %}
                   <p class="no_point"><!--포인트 없을 때-->0</p>

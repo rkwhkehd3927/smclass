@@ -6,7 +6,7 @@ from event.models import Attendance
 
 # 쿠폰
 class Coupon(models.Model):
-  attendance = models.ForeignKey(Attendance, on_delete=models.CASCADE)
+  attendance = models.ForeignKey(Attendance, on_delete=models.CASCADE) # member(외래키)로 수정 예정
   discount = models.IntegerField() # 쿠폰 금액
   used_from = models.DateTimeField()
   used_to = models.DateTimeField()

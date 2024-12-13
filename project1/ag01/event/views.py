@@ -193,7 +193,7 @@ def coupon(request):
 def point(request):
   if request.method == "GET":
     aId = request.session.get('session_id')
-    qs = Attendance.objects.filter(id=aId)
+    qs = Attendance.objects.filter(aId=aId)
     if qs:
       context = {"result":"success","point":qs[0].aPoint}
     else:
