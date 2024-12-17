@@ -1,16 +1,19 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ko">
+{% extends "base.html" %}
+
+
 <head>
+{% load static %}
+{% block extrahead %}
+
   <title>임시 로그인페이지</title>
   <meta charset="UTF-8">
-  <meta name="csrf-token" content="{{ csrf_token }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="description" content="ANGGGO" />
   <meta name="keywords" content="ANGGGO" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scaleable=no" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %} ">
+  <link rel="stylesheet" type="text/css" href="{% static '/css/navbarStyles.css'%}" />
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
     $(document).ready(function(){
@@ -114,8 +117,11 @@
       }); // .signin__btn
     }); // jquery
   </script>
+  {% endblock %}
 </head>
+
 <body>
+{% block content %}
 <div class="container">
   <!-- Heading -->
   <h1>로그인</h1>
@@ -159,5 +165,7 @@
     <a href="/member/findInfo/">아이디 • 비밀번호 찾기</a>
   </div>
 
+</div>
+{% endblock %}
 </body>
 </html>

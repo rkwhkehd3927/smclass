@@ -117,8 +117,8 @@ $(document).ready(function() {
       headers:{"X-CSRFToken":csrfToken},
       url:"/event/apply/",
       type:"post",
-      data:{
-        "id":"{{request.session.session_id}}",
+      data: {
+        "id":id,
         "ticketDeduction":ticketDeduction, // 차감할 응모권 수 전송
       },
       success:function(data){
@@ -188,7 +188,7 @@ $(document).ready(function() {
         url:"/event/luckyDraw/",
         type:"post",
         data:{
-          "id":"{{request.session.session_id}}",
+          "id":id,
           "ticketDeduction":ticketDeduction, // 차감할 응모권 수 전송
         },
         success:function(data){

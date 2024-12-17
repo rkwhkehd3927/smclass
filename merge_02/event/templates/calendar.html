@@ -1,24 +1,25 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="csrf-token" content="{{ csrf_token }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google fonts-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+{% load static %}
+{% block extrahead %}
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+  <link rel="stylesheet" type="text/css" href="{% static '/css/navbarStyles.css'%}" />
   <link rel="stylesheet" type="text/css" href="{% static '/css/calendar.css'%}" />
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript" src="{% static '/js/event.js'%}"></script>
 
   <title>출석체크</title>
+  {% endblock %}
 </head>
 <body>
-  <h2 class="logoAg"><a class="navbar-brand" href="/">앙꼬</a></h2>
+
+{% block content %}
+
+  {% comment %} <h2 class="logoAg"><a class="navbar-brand" href="/">앙꼬</a></h2>
   <ul class='tempMenu'>
     <li><a href="/admin/">admin</a></li>
     {% if not request.session.session_id %}
@@ -26,7 +27,7 @@
     {% else %}
     <li><a href="/member/logout/">로그아웃</a></li>
     {% endif %}
-  </ul>
+  </ul> {% endcomment %}
 
   
  
@@ -209,6 +210,6 @@
   </section> <!-- //container -->
   
 
-  
+{% endblock %}
 </body>
 </html>

@@ -265,7 +265,7 @@ table{width: 80%; height: 800px; border: 1px solid red; margin: 0 auto; font-siz
 /* 맨 하단 */
 footer {
   width: 100%; 
-  height: 165px; 
+  height: 265px; 
   margin-top: 1300px;
   /* color */
   --bs-bg-opacity: 1;

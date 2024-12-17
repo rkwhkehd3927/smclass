@@ -7,7 +7,7 @@ class MemberAdmin(admin.ModelAdmin):
 
 @admin.register(Star)
 class StarAdmin(admin.ModelAdmin):
-    list_display = ("sNo", "member", "fboard", "sDate")
+    list_display = ("sNo", "sDate")
 
 
 @admin.register(Reservation)

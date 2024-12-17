@@ -1,11 +1,13 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="ko">
+{% extends "base.html" %}
+
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="csrf-token" content="{{ csrf_token }}">
+{% load static %}
+{% block extrahead %}
+
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" type="text/css" href="{% static '/css/navbarStyles.css'%}" />
   <link rel="stylesheet" type="text/css" href="{% static '/css/nboard.css' %}">
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script src="{% static 'js/reward_points.js' %}"></script>
@@ -267,7 +269,9 @@ $(document).ready(function () {
 //--------------------------------------------------------------------------------------------
 
 </script>
+{% endblock %}
 </head>
+
 <body>
   <!-- 헤더 부분 -->
   <header>
@@ -289,6 +293,7 @@ $(document).ready(function () {
     <hr>
   </header>
   <!-- 헤더 끝 -->
+{% block content %}
   <!-- 메인 실행 -->
   <main>
     <form action="#" name="mapping" method="post">
@@ -415,43 +420,7 @@ $(document).ready(function () {
     </div>
   </main>
   <!-- 메인 끝 -->
-  <!-- 하단 부분 -->
-  <footer>
-    <div class="footerr">
-        <div class="ftnavi">
-            <ul>
-                <li><a href="">회사소개</a></li>
-                <li><a href="">오시는길</a></li>
-                <li><a href="">개인정보처리방침</a></li>
-                <li><a href="">영상정보처리기기운영관리방침</a></li>
-                <li><a href="">이용약관</a></li>
-                <li><a href="">이메일무단수집거부</a></li>
-            </ul>
-        </div>
-        <div class="bottom_footer">
-
-            <div class="addr">
-                <p>앙꼬<span>|</span>서울 금천구 가산디지털2로 101</p>
-                <p class="tel">대표번호 : 070-777-7777&nbsp;&nbsp;
-                    <span>예약문의 : 7777-7777</span>
-                    <span>단체문의 : 02-7171-1717</span>
-                    <span>분양문의 : 02-737-3737</span>
-                    <span>통신판매업신고 : 2024-서울금천-1213호</span>
-                </p>
-                <p>메리츠화재와 개인정보 배상책임보험 계약을 체결하여 회원 개인정보를 보호하고 있습니다.</p>
-                <p class="copy">COPYRIGHT(C) ANGGGO. ALL RIGHTS RESERVED.</p>
-            </div>
-            <!-- <div class="right"> -->
-            <div class="sns">
-                <a href="#"><img src="/static/images/main/insta_btn_fnew.png"></a>
-                <a href="#"><img src="/static/images/main/youtube_btn_fnew.png"></a>
-                <a href="#"><img src="/static/images/main/facebook_btn_fnew.png"></a>
-                <a href="#"><img src="/static/images/main/kakao_ch_btn_fnew.png"></a>
-            </div>
-        </div>
-        <!-- </div> -->
-    </div>
-</footer>
+  
 
   <script>
     // 6. 모달창 클릭
@@ -468,5 +437,7 @@ $(document).ready(function () {
         $("body").removeClass("modal-open");
     });//6번 끝
   </script>
+
+{% endblock %}
 </body>
 </html>
