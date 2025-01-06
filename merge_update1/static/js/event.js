@@ -1,6 +1,15 @@
 $(document).ready(function() {
   const csrfToken = $("meta[name='csrf-token']").attr("content"); // csrfToken을 가져옵니다.
   // const aId = "{{request.session.session_id}}"; // 세션 ID를 확인함
+
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth()+1;
+  var day = now.getDate();
+  $(".tit_get_benefit").text(month+"월 혜택받기");
+  $(".attend_event_ticket_date").text(year+"년 "+month+"월 "+day+"일 기준");
+
+
   
 
   // 이달의 이벤트
@@ -236,5 +245,6 @@ function copyUrl(){
     alert("주소가 복사되었습니다.");
   })
 }
+
 
 
